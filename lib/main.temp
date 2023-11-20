@@ -1,0 +1,1188 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        // This is the theme of your application.
+        //
+        // TRY THIS: Try running your application with "flutter run". You'll see
+        // the application has a blue toolbar. Then, without quitting the app,
+        // try changing the seedColor in the colorScheme below to Colors.green
+        // and then invoke "hot reload" (save your changes or press the "hot
+        // reload" button in a Flutter-supported IDE, or press "r" if you used
+        // the command line to start the app).
+        //
+        // Notice that the counter didn't reset back to zero; the application
+        // state is not lost during the reload. To reset the state, use hot
+        // restart instead.
+        //
+        // This works for code too, not just values: Most code changes can be
+        // tested with just a hot reload.
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        useMaterial3: true,
+      ),
+      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+    );
+  }
+}
+
+class MyHomePage extends StatefulWidget {
+  const MyHomePage({super.key, required this.title});
+
+  // This widget is the home page of your application. It is stateful, meaning
+  // that it has a State object (defined below) that contains fields that affect
+  // how it looks.
+
+  // This class is the configuration for the state. It holds the values (in this
+  // case the title) provided by the parent (in this case the App widget) and
+  // used by the build method of the State. Fields in a Widget subclass are
+  // always marked "final".
+
+  final String title;
+
+  @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  int _counter = 0;
+
+  void _incrementCounter() {
+    setState(() {
+      // This call to setState tells the Flutter framework that something has
+      // changed in this State, which causes it to rerun the build method below
+      // so that the display can reflect the updated values. If we changed
+      // _counter without calling setState(), then the build method would not be
+      // called again, and so nothing would appear to happen.
+      _counter++;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    // This method is rerun every time setState is called, for instance as done
+    // by the _incrementCounter method above.
+    //
+    // The Flutter framework has been optimized to make rerunning build methods
+    // fast, so that you can just rebuild anything that needs updating rather
+    // than having to individually change instances of widgets.
+    return Scaffold(
+      appBar: AppBar(
+        // TRY THIS: Try changing the color here to a specific color (to
+        // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
+        // change color while the other colors stay the same.
+        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        // Here we take the value from the MyHomePage object that was created by
+        // the App.build method, and use it to set our appbar title.
+        title: Text(widget.title),
+      ),
+      body: Center(
+        // Center is a layout widget. It takes a single child and positions it
+        // in the middle of the parent.
+        child: Column(
+          // Column is also a layout widget. It takes a list of children and
+          // arranges them vertically. By default, it sizes itself to fit its
+          // children horizontally, and tries to be as tall as its parent.
+          //
+          // Column has various properties to control how it sizes itself and
+          // how it positions its children. Here we use mainAxisAlignment to
+          // center the children vertically; the main axis here is the vertical
+          // axis because Columns are vertical (the cross axis would be
+          // horizontal).
+          //
+          // TRY THIS: Invoke "debug painting" (choose the "Toggle Debug Paint"
+          // action in the IDE, or press "p" in the console), to see the
+          // wireframe for each widget.
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            const Text(
+              'You have pushed the button this many times:',
+            ),
+            Text(
+              '$_counter',
+              style: Theme.of(context).textTheme.headlineMedium,
+            ),
+          ],
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: _incrementCounter,
+        tooltip: 'Increment',
+        child: const Icon(Icons.add),
+      ), // This trailing comma makes auto-formatting nicer for build methods.
+    );
+  }
+}
+
+
+           (1) *simple UI*
+
+String name = 'Sicily';
+
+  @override
+  Widget build(BuildContext context){
+    return  Scaffold(
+      backgroundColor: Colors.white,
+      // appBar: AppBar(),
+      body: SafeArea(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+          Expanded(
+            flex: 2,
+            child: Container(
+                  color: Colors.yellow,
+                  
+                  child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                name,
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              color: Colors.green,
+              fontSize: 50,
+              fontWeight: FontWeight.bold,
+              ), 
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+          
+              ],
+            ),
+            TextButton(
+              onPressed: () {
+                print('Text Button Clicked');
+              },
+               child: Text('Click Me'),
+          
+               ),
+              ElevatedButton(
+                onPressed: (){
+                print('Elevated Button Clicked');
+              },
+               child: Text('Click Me'),
+              ),
+              ],
+              )
+              ),
+          ),
+          Expanded(
+            child: Container(
+              decoration: BoxDecoration(
+                color: Colors.red,
+                borderRadius: BorderRadius.circular(50),
+                border: Border.all(
+                color: Colors.green,
+                width: 10),
+               ),
+           child: Center(child: Text('Simple text')),
+          )
+          ),
+            Expanded(
+              child: Container(
+                    color: Colors.orange,
+                    
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+              Text(
+                name,
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+              color: Colors.green,
+              fontSize: 50,
+              fontWeight: FontWeight.bold,
+              ), 
+                      ),
+                      Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+            
+              ],
+                      ),
+                      TextButton(
+              onPressed: () {
+                print('Text Button Clicked');
+              },
+               child: Text('Click Me'),
+            
+               ),
+              ElevatedButton(
+                onPressed: (){
+                print('Elevated Button Clicked');
+              },
+               child: Text('Click Me'),
+              ),
+              ],
+              )
+              ),
+            )
+        ],)
+          ),
+
+
+         (2) *displaying text using button*
+
+           
+
+import 'package:flutter/material.dart';
+
+main(){
+
+runApp(MyApp());
+}
+class MyApp extends StatelessWidget{
+  const MyApp({ Key? key}) : super(key: key);
+  @override
+  Widget build(BuildContext context){
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+  home: HomeScreen(),
+    );
+  }
+}
+
+class HomeScreen extends StatefulWidget {
+   HomeScreen({ Key? key}): super(key: key);
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+final _textController = TextEditingController();
+
+String _displayText = 'Text will be displayed here';
+
+@override 
+Widget build(BuildContext context){
+  return  Scaffold(
+    body: SafeArea(
+      child: Padding(
+        padding: EdgeInsets.all(20),
+        child: Container(
+          color: Colors.yellow[100],
+          child: Column(children: [
+            TextField(
+              controller: _textController,
+              decoration: InputDecoration(
+                border: OutlineInputBorder(),
+                hintText: 'Type something',
+              ),
+            ),
+            ElevatedButton(
+              onPressed: (){
+                //Get Data
+                print(_textController.text);
+                setState(() {
+                    _displayText = _textController.text;
+                });
+               
+              },
+               child: Text('Click Here'),
+               ),
+               Text( _displayText),
+            ],
+            ),
+        ),
+      ),
+    ),
+  );  
+}
+}
+
+
+
+
+
+       (3)  *Number Increment with button*
+
+import 'package:flutter/material.dart';
+
+class ScreenHome extends StatefulWidget {
+  const ScreenHome({ Key? key}): super(key: key);
+
+  @override
+  _ScreenHomeState createState() => _ScreenHomeState();
+}
+
+class _ScreenHomeState extends State<ScreenHome> {
+  int _counter = 0;
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: Text(_counter.toString()),
+        ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add),
+        onPressed: (){
+          print(_counter);
+          setState(() {
+            _counter= _counter + 1;
+          });
+          
+        },
+      )
+    );
+  }
+}
+
+
+import 'package:flutter/material.dart';
+import 'package:sample_project_3/screen_home.dart';
+
+void main(List<String> args) {
+  runApp(MyApp());
+}
+class MyApp extends StatelessWidget {
+  const MyApp({ Key? key}): super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      theme: ThemeData(
+        primarySwatch: Colors.purple,
+      ),
+      home: ScreenHome(),
+    );
+  }
+}
+          
+      
+   (4) *whatsapp chat list view* 
+
+    *main function*
+
+import 'package:flutter/material.dart';
+import 'package:sample_project_3/listview_sample.dart';
+
+void main(List<String> args) {
+  runApp(MyApp());
+}
+class MyApp extends StatelessWidget {
+  const MyApp ({ Key? key}): super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: ListViewSample()
+    );
+  }
+}
+    
+    *code*
+
+    import 'package:flutter/material.dart';
+
+class ListViewSample extends StatelessWidget {
+const ListViewSample({ Key? key}): super(key: key);
+
+  @override
+  Widget build(BuildContext context) { 
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('ListView Sample Project'),
+         ),
+         body: SafeArea(
+          child: Expanded(
+           child:ListView.separated(
+            itemBuilder: (context,index){
+return ListTile(
+  title: Text('PERSON $index'),
+  subtitle: Text('Message $index'),
+
+  leading: CircleAvatar(radius: 30,
+          backgroundColor: Colors.green,
+          backgroundImage: AssetImage('lib/assets/images/Oscar Isaac.jpeg')  ,),
+  trailing: Text('1$index:00 PM'),
+);
+            },
+            separatorBuilder: (context,index){
+return Divider();
+            },
+            itemCount: 30,
+            ),
+
+         ),
+        )
+    );
+  }
+}
+  
+
+  *snackbar alert message*
+
+  final _errorMessage = 'Username and password does not match';
+
+  //snackbar
+  ScaffoldMessenger.of(context)
+  .showSnackBar(SnackBar(
+    behavior: SnackBarBehavior.floating,
+    backgroundColor: Colors.red,
+    margin: EdgeInsets.all(10),
+    duration: Duration(seconds: 10),
+    content: Text(_errorMessage)
+    ),
+    );
+
+    *alert dialog*
+
+//Alert Dialog
+showDialog(context: context, builder: ((context){
+return AlertDialog(
+  title:Text('error'),
+  content: Text(_errorMessage),
+  actions: [
+    TextButton(onPressed: (){
+      Navigator.of(context).pop();
+    }, child: Text('close'))
+  ],
+);
+}));
+
+*show text*
+
+//show text
+
+setState(() {
+  _isDataMatched = false;
+});
+
+
+*login page* 
+
+/*home page*
+
+import 'package:flutter/material.dart';
+import 'package:sample_project_3/login.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+class ScreenHome extends StatelessWidget {
+ScreenHome({ Key? key}): super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Home'),
+        actions: [
+          IconButton(onPressed: (){
+            signout(context);
+          }, icon: Icon(Icons.exit_to_app)),
+        ],
+      ),
+      body: SafeArea(child: Center(
+        child: Text('Home'))),
+    );
+
+  }
+  signout(BuildContext context)async{
+
+ final _sharedprefs = await SharedPreferences.getInstance();
+ await _sharedprefs.clear();
+
+
+    Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) => ScreenLogin()), (route) => false);
+  }
+}
+
+
+
+*splash page*
+
+import 'dart:js';
+
+import 'package:flutter/material.dart';
+import 'package:sample_project_3/home.dart';
+import 'package:sample_project_3/login.dart';
+import 'package:sample_project_3/main.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+class ScreenSplash extends StatefulWidget {
+  const ScreenSplash ({ Key? key}): super(key: key);
+
+  @override
+  State<ScreenSplash> createState() => _ScreenSplashState();
+}
+
+class _ScreenSplashState extends State<ScreenSplash> {
+
+@override
+  void initState() {
+    checkUserLoggedIn();
+    super.initState();
+  }
+
+@override
+  void didChangeDependencies() {
+    // TODO: implement didChangeDependencies
+    super.didChangeDependencies();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: Image.asset('lib/assets/images/Oscar Isaac.jpeg',height:400,),
+        ),
+        );
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+  }
+
+Future<void> gotoLogin() async{
+  await Future.delayed(Duration(seconds: 3));
+  Navigator.of(context as BuildContext)
+  .pushReplacement(MaterialPageRoute(builder: (context)=> ScreenLogin(),
+  ),
+  );
+}
+
+Future<void> checkUserLoggedIn() async{
+  final _sharedprefs = await SharedPreferences.getInstance();
+  final _userLoggedIn = _sharedprefs.getBool(SAVE_KEY_NAME);
+  if(_userLoggedIn == null || _userLoggedIn == false){
+    gotoLogin();
+  } else{
+    Navigator.of(context as BuildContext).pushReplacement(MaterialPageRoute(builder: (context)=> ScreenHome()));
+  }
+}
+}
+
+
+
+*login page*
+
+
+import 'package:flutter/material.dart';
+import 'package:sample_project_3/home.dart';
+import 'package:sample_project_3/main.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+class ScreenLogin extends StatefulWidget {
+   ScreenLogin({ Key? key}): super(key: key);
+
+  @override
+  State<ScreenLogin> createState() => _ScreenLoginState();
+}
+
+class _ScreenLoginState extends State<ScreenLogin> {
+final _usernameController = TextEditingController();
+
+final _passwordController = TextEditingController();
+
+bool _isDataMatched = true;
+
+final _formKey = GlobalKey<FormState>();
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(15.0),
+          child: Form(
+            key: _formKey,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                TextFormField(
+                  controller: _usernameController,
+                  decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
+                    hintText: 'Username',
+                  ),
+                  validator: (value){
+                    // if(_isDataMatched)
+                    // {
+                    //   return null;
+                    // }else{
+                    //   return 'error';
+                    // }
+                    if(value == null || value.isEmpty) {
+                      return 'value is empty';
+                   }else {
+                    return null;
+                   }
+                  },
+                ),
+               const SizedBox(
+                height: 20,
+                ),
+                TextFormField(
+                  controller: _passwordController,
+                  obscureText: true,
+                  decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
+                    hintText: 'Password',
+                  ),
+                  validator: (value){
+                    // if(_isDataMatched)
+                    // {
+                    //   return null;
+                    // }else{
+                    //   return 'error';
+                    // }
+                   if(value == null || value.isEmpty) {
+                      return 'value is empty';
+                   }else {
+                    return null;
+                   } 
+                  },
+                ),
+                SizedBox(
+                  height: 20,),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Visibility(
+                      visible: !_isDataMatched,
+                      child: Text(
+                        'Username and password does not match',
+                        style: TextStyle(
+                          color: Colors.red,
+                        ),
+                      ),
+                    ),
+                    ElevatedButton.icon(
+                      onPressed: (){
+                        if( _formKey.currentState!.validate())
+                       {
+                       checkLogin(context);
+                       }else {
+                        print('Data Empty');
+                       }
+                        //  checkLogin(context);
+                      }, 
+                      icon: const Icon(Icons.check),
+                       label: const Text('Login'),
+                    ),
+                  ],
+                )
+              ],
+            ),
+          ),
+        ),
+      )
+    );
+    
+  }
+
+void checkLogin(BuildContext context) async { 
+  final _username = _usernameController.text;
+  final _password = _passwordController.text;
+  if(_username == _password){
+    print('username and password match');
+    
+    //goto
+  final _sharedprefs = await SharedPreferences.getInstance();
+  await _sharedprefs.setBool(SAVE_KEY_NAME, true);
+
+    Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>ScreenHome()));
+  }else{
+    print('username and password does not match');
+  
+  }
+}
+}
+
+
+*main*
+
+import 'package:flutter/material.dart';
+import 'package:sample_project_3/splash.dart';
+
+const SAVE_KEY_NAME = 'UserLoggedIn';
+
+void main(List<String> args) {
+ runApp(const MyApp()); 
+}
+class MyApp extends StatelessWidget {
+  const MyApp({ Key? key}): super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+     title: 'Login Sample',
+     theme: ThemeData(
+      primarySwatch: Colors.blue,
+     ),
+    home: ScreenSplash(),
+    );
+  }
+}
+
+
+
+
+*value notifier and bottom sheet*
+
+class MyHomePage extends StatelessWidget {
+  ValueNotifier<int> _counter = ValueNotifier(0);
+
+  
+
+  void _incrementCounter(){
+    _counter.value = _counter.value+1;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+   return Scaffold(
+    body: Center(child: Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+    children: <Widget>[
+      const Text('You have pushed this button many times:',
+      ),
+      ValueListenableBuilder(
+        valueListenable: _counter, 
+        builder:(BuildContext context, int newValue, Widget? child){
+        return Text('$newValue',
+        style: Theme.of(context).textTheme.headlineMedium,
+        );
+      },
+      ),
+      ],
+      ),
+    ),
+    floatingActionButton: FloatingActionButton(
+      onPressed: (){
+        showBottomSheet(context);
+      },
+      tooltip: 'Increment',
+      child: const Icon(Icons.add),
+    ),
+
+    );
+   
+  }
+
+Future<void> showBottomSheet(BuildContext context) async{
+  showModalBottomSheet(context: context, builder: (context1){
+return Container(
+  width: double.infinity,
+  height: 500,
+  color: Colors.orange,
+  child: ListView(
+    children: [
+      Text('Title'),
+      TextButton(onPressed: (){
+        Navigator.of(context1).pop();
+      }, child: Text('Close'),
+      ),
+    ],
+  ),
+);
+  });
+}
+}
+
+
+
+*bottom navigation*
+*main*
+
+import 'package:flutter/material.dart';
+import 'package:sample_project_3/screen_home.dart';
+
+void main(List<String> args) {
+  runApp(const MyApp());
+  
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({ Key? key}): super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+  title: 'flutter demo',
+  theme: ThemeData(
+    primarySwatch: Colors.blue
+  ),
+  home: ScreenHome(),
+    );
+  }
+
+  
+}
+
+
+*screen_home*
+
+import 'package:flutter/material.dart';
+import 'package:sample_project_3/screen_accounts.dart';
+import 'package:sample_project_3/screen_main.dart';
+import 'package:sample_project_3/screen_search.dart';
+
+
+class ScreenHome extends StatefulWidget {
+  const ScreenHome ({ Key? key}): super(key: key);
+
+  @override
+  State<ScreenHome> createState() => _ScreenHomeState();
+}
+
+class _ScreenHomeState extends State<ScreenHome> {
+
+int _currentSelectedIndex = 0;
+
+final _pages = [
+  ScreenMain(),
+  ScreenSearch(),
+  ScreenAccounts()
+];
+
+  @override
+  Widget build(BuildContext context) {
+    return  Scaffold(
+      body: _pages[_currentSelectedIndex],
+bottomNavigationBar: BottomNavigationBar(
+  selectedItemColor: Colors.red,
+  unselectedItemColor: Colors.blue,
+currentIndex:_currentSelectedIndex ,
+onTap: (newIndex) {
+  setState(() {
+    _currentSelectedIndex = newIndex;
+  });
+},
+  items:const [
+BottomNavigationBarItem(icon: Icon(Icons.home),label: 'home'),
+BottomNavigationBarItem(icon: Icon(Icons.search),label: 'search'),
+BottomNavigationBarItem(icon: Icon(Icons.person),label:'account')
+  ]),
+    );
+  }
+}
+
+*screen_main*
+import 'package:flutter/material.dart';
+
+class ScreenMain extends StatelessWidget {
+ScreenMain({ Key? key}): super(key: key);
+
+final _list = [
+  'Apple',
+  'Orange',
+  'Pine Apple'
+];
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Center(
+        child: DropdownButtonFormField(
+          hint: Text('Select a Fruit'),
+          items: _list.map((e) {
+          return DropdownMenuItem(
+            value: e,
+            child: Text(e));
+        }).toList(), 
+        onChanged: (value) { 
+          print(value);
+         },),
+      ),
+    );
+  }
+}
+
+*screen_search*
+
+import 'package:flutter/material.dart';
+
+class ScreenSearch extends StatelessWidget {
+  const ScreenSearch ({ Key? key}): super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Center(
+        child: Text('Search'),
+      ),
+    );
+  }
+}
+
+*ScreenAccounts*
+
+import 'package:flutter/material.dart';
+
+class ScreenAccounts extends StatelessWidget {
+  const ScreenAccounts({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Center(
+        child: Text('Accounts'),
+      ),
+    );
+  }
+}
+
+import 'package:flutter/material.dart';
+
+void main(List<String> args) {
+  runApp(MyApp());
+}
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'flutter demo',
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('My Flutter Demo'),
+        ),
+        body: Center(
+          child: Text('Iam SK'),
+        ),
+      ),
+    );
+  }
+}
+
+
+
+*add,display,delete students list using database hive*
+
+//main
+
+import 'package:flutter/material.dart';
+import 'package:hive_flutter/adapters.dart';
+import 'package:sample_project_3/data_models.dart';
+import 'package:sample_project_3/screen_home.dart';
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Hive.initFlutter();
+  if (!Hive.isAdapterRegistered(StudentModelAdapter().typeId)){
+    Hive.registerAdapter(StudentModelAdapter());
+  }
+    runApp(MyApp());
+}
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+          title: 'My Flutter Demo',
+          theme:ThemeData(primarySwatch: Colors.blue),
+          home: ScreenHome(),
+        );
+ }
+}
+
+
+//screen home
+
+import 'package:flutter/material.dart';
+import 'package:sample_project_3/add_student.dart';
+import 'package:sample_project_3/functions.dart';
+import 'package:sample_project_3/list_student.dart';
+
+
+class ScreenHome  extends StatelessWidget {
+  
+  const ScreenHome({ Key? key}): super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    getAllStudents();
+    return Scaffold(
+      body: SafeArea(
+        child: Column(
+          children: [
+           AddStudentWidget(),
+           const Expanded(child: ListStudentWidget())
+          ],
+        )),
+    );
+  }
+}
+
+//add student
+
+import 'package:flutter/material.dart';
+import 'package:sample_project_3/data_models.dart';
+import 'package:sample_project_3/functions.dart';
+
+class AddStudentWidget extends StatelessWidget {
+   AddStudentWidget ({super.key});
+
+  final _nameController = TextEditingController();
+  final _ageController = TextEditingController();
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(padding: EdgeInsets.all(10.0),
+    child: Column(
+      children: [
+        TextFormField(
+          controller:_nameController ,
+          decoration: InputDecoration(
+            border: OutlineInputBorder(),
+            hintText: 'Name',
+          ),
+        ),
+        SizedBox(height: 10),
+        TextFormField(
+          controller:_ageController ,
+          decoration: InputDecoration(
+            border: OutlineInputBorder(),
+            hintText: ' Age',
+          ),
+        ),
+        SizedBox(height: 10),
+        ElevatedButton.icon(onPressed: (){
+      OnAddStudentButtonClicked();   
+        }, icon: const Icon(Icons.add), 
+        label: Text('Add Student'),
+        )
+      ],
+    ),
+    );
+  }
+  // ignore: non_constant_identifier_names
+  Future<void> OnAddStudentButtonClicked() async {
+    final _name = _nameController.text.trim();
+    final _age = _ageController.text.trim();
+    if(_name.isEmpty || _age.isEmpty) {
+      return;
+    }
+    //print('$_name $_age');
+  final _student = StudentModel(name: _name, age: _age);
+  addStudent(_student);
+
+  }
+}
+
+
+//list student
+
+import 'package:flutter/material.dart';
+import 'package:sample_project_3/data_models.dart';
+import 'package:sample_project_3/functions.dart';
+
+class ListStudentWidget extends StatelessWidget {
+  const ListStudentWidget({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return ValueListenableBuilder(
+      valueListenable: studentListNotifier,
+      builder: (BuildContext context, List<StudentModel> studentList, Widget? child){
+    return ListView.separated(
+      itemBuilder: (context, index) {
+        final data = studentList[index];
+        return ListTile(
+          title: Text(data.name),
+          subtitle: Text(data.age),
+          trailing: IconButton(
+            onPressed: (){
+              // if (data.id != null){
+              // deleteStudent(data.id!);  
+              // }else {
+              //   print('Student id is null. unable to delete');
+              // }
+        
+          }, 
+          icon: const Icon(Icons.delete, color: Colors.red,)),
+        );
+      }, separatorBuilder: (context, index) {
+        return Divider();
+      }, itemCount: studentList.length,);
+      },
+      
+    );
+  }
+}
+
+// data models
+
+import 'package:hive_flutter/adapters.dart';
+part 'data_models.g.dart';
+
+
+@HiveType(typeId: 1) 
+class StudentModel {
+ 
+  @HiveField(0)
+  final String name;
+
+  @HiveField(1)
+  final String  age;
+
+  // @HiveField(2)
+  // int ? id;
+  // this.id (in the constructor)
+
+
+StudentModel({required this.name, required this.age });
+
+}
+
+//functions
+
+import 'package:flutter/material.dart';
+import 'package:hive_flutter/adapters.dart';
+import 'package:sample_project_3/data_models.dart';
+
+ValueNotifier<List<StudentModel>> studentListNotifier = ValueNotifier([]);
+
+Future<void> addStudent(StudentModel value) async {
+  final studentDB = await Hive.openBox<StudentModel>('student_db');
+   await studentDB.add(value);  
+  //  final _id = 
+  //  value.id = _id;
+   studentListNotifier.value.add(value);
+  studentListNotifier.notifyListeners();
+}
+
+Future<void> getAllStudents() async {
+   final studentDB = await Hive.openBox<StudentModel>('student_db');
+   studentListNotifier.value.clear();
+
+   studentListNotifier.value.addAll(studentDB.values);
+    studentListNotifier.notifyListeners();
+}
+
+// Future<void> deleteStudent(int id) async {
+//   final studentDB = await Hive.openBox<StudentModel>('student_db');
+//   studentDB.delete(id);
+//   studentListNotifier.notifyListeners();
+// }
+
+
+
+
+
+
+
+
+
